@@ -1,0 +1,17 @@
+
+{{define "index" }}
+
+{{ template "header" . }}
+
+
+{{ if .IsLogged }}
+	{{ template "home" . }}
+{{ else }}
+	{{ template "welcome" . }}
+{{ end }}
+
+
+{{ template "footer" . }}
+
+{{end}}
+

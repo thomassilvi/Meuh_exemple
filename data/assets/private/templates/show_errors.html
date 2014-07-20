@@ -1,0 +1,14 @@
+
+{{ define "show_errors" }}
+
+{{ if .Errors }}
+        <ul>
+        {{range $Error := .Errors}}
+                <li> {{ $Error | html }} </li>
+        {{end}}
+        </ul>
+{{ end }}
+
+{{ end }}
+
+

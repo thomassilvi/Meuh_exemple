@@ -1,0 +1,50 @@
+
+{{define "user_edit" }}
+
+{{ template "header" . }}
+
+
+{{ if .Errors }}
+        <ul>
+        {{range $Error := .Errors}}
+          <li> {{ $Error | html }} </li>
+        {{end}}
+        </ul>
+{{ end }}
+
+
+        
+<form name="user_edit_form" method="POST" action="/user/edit" >
+
+<table>
+<tr>
+	<td><labe>Login</label></td>
+	<td>
+		{{ if .User.Login }}
+		<input type="text" name="Login" id="Login" size="50" 
+			value="{{ .User.Login }}" readonly >
+		{{ end }}
+	</td>
+</tr>
+<tr>
+	<td><labe>Email</label></td>
+	<td>
+		<input name="Email" id="Email" maxlength="100" size="50" type="text" 
+		required="" {{ if .User.Email}}value="{{ .User.Email | html }}" {{ end }} >
+	</td>
+</tr>
+<tr>
+	<td colspan=2>
+		<button type="submit" >Enregistrer les modifications</button>
+	</td>
+</tr>
+</table>
+
+</form>
+
+
+{{ template "footer" . }}
+
+{{ end }}
+
+

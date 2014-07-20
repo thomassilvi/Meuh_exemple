@@ -1,0 +1,76 @@
+
+
+{{ define "user_new" }}
+
+{{ template "header" . }}
+
+{{ if .Errors }}
+	<ul>
+	{{range $Error := .Errors}}
+  	  <li> {{ $Error | html }} </li>
+	{{end}}
+	</ul>
+{{ end }}
+
+<form name="sign_up_form" method="POST" action="/user/new" >
+
+<h2">Inscription</h2>
+<table align="center" >
+<tr>
+        <td><label for="Login">Entrez votre identifiant</label></td>
+        <td>
+		<input type="text" placeholder="Login" name="Login" id="Login" 
+                        maxlength="50" size="20"  required="" 
+			{{ if .User.Login}}value="{{ .User.Login | html }}" {{ end }}   >
+		</td>
+</tr>
+<tr>
+	<td><label for="Email">Entrez votre e-mail</label></td>
+	<td>
+		<input type="text" placeholder="Email" name="Email" id="Email" 
+			maxlength="100" size="50" type="text" required=""
+			{{ if .User.Email}}value="{{ .User.Email | html }}" {{ end }} > 
+	</td>
+</tr>
+<tr>
+	<td><label for="Password">Entrez un mot de passe</label></td>
+	<td>
+		<input type="password" name="Password" id="Password" 
+			maxlength="50" size="50" placeholder="Mot de passe" required>
+	</td>
+</tr>
+
+<tr>
+	<td><label for="PasswordConfirmation">Confirmez le mot de passe</label></td>
+	<td>
+		<input type="password" name="PasswordConfirmation" id="PasswordConfirmation" 
+			maxlength="50" size="50" placeholder="Mot de passe" required>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2" align="center" >
+		<label>
+		<input type="checkbox" name="AgreeTermsAndConditions" required="" 
+			id="AgreeTermsAndConditions" type="checkbox">
+		J'accepte les <A href="/terms">conditions d'utilisation</a> de MonProduit
+		</label>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center" >
+	<button type="submit">Continuer l'inscription</button>
+	</td>
+</tr>
+</table>
+
+	
+</form>
+
+</div>
+
+{{ template "footer" . }}
+
+{{ end }}
+
+

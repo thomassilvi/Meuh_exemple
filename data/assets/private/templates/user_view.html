@@ -1,0 +1,38 @@
+
+{{define "user_view" }}
+
+{{ template "header" . }}
+
+<form>
+<table>
+<tr>
+	<td>
+		<labe>Login</label>
+	</td>
+	<td>
+		<input type="text" maxlength="100" size="50" value="{{ .User.Login }}" readonly >
+	</td>
+</tr>
+<tr>
+	<td>
+		<labe>Email</label>
+	</td>
+	<td>
+		<input type="text" maxlength="100" size="50" value="{{ .User.Email }}" readonly >
+	</td>
+</tr>
+</table>
+</form>
+
+</br>
+<a href="/user/edit">Modifiers mes parametres</a> |
+<a href="/user/change_password">Modifier mon mot de passe</a> 
+</br>
+
+
+
+{{ template "footer" . }}
+
+{{ end }}
+
+
