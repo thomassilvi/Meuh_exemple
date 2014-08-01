@@ -4,17 +4,11 @@
 
 {{ template "header" . }}
 
-{{ if .Errors }}
-	<ul>
-	{{range $Error := .Errors}}
-  	  <li> {{ $Error | html }} </li>
-	{{end}}
-	</ul>
-{{ end }}
+{{ template "show_errors" . }}
 
 <form name="sign_up_form" method="POST" action="/user/new" >
 
-<h2">Inscription</h2>
+<h2>Inscription</h2>
 <table align="center" >
 <tr>
         <td><label for="Login">Entrez votre identifiant</label></td>
